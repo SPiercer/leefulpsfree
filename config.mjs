@@ -42,19 +42,19 @@ export const ps4_6_50 = 3;
 export const ps4_6_00 = 4;
 
 export function set_target(value) {
-    switch (value) {
-        case ps4_8_03:
-        case ps4_9_00:
-        case ps4_6_00:
-        case ps4_6_50: {
-            break;
-        }
-        default: {
-            throw RangeError('invalid target: ' + target);
-        }
+  switch (value) {
+    case ps4_8_03:
+    case ps4_9_00:
+    case ps4_6_00:
+    case ps4_6_50: {
+      break;
     }
+    default: {
+      throw RangeError('invalid target: ' + target);
+    }
+  }
 
-    target = value;
+  target = value;
 }
 
 export let target = ps4_9_00;

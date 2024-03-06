@@ -41,65 +41,65 @@ import { Int } from './int64.mjs';
 
 // for reads less than 8 bytes
 function read(u8_view, offset, size) {
-    let res = 0;
-    for (let i = 0; i < size; i++) {
-        res += u8_view[offset + i] << i*8;
-    }
-    // << returns a signed integer, >>> converts it to unsigned
-    return res >>> 0;
+  let res = 0;
+  for (let i = 0; i < size; i++) {
+    res += u8_view[offset + i] << (i * 8);
+  }
+  // << returns a signed integer, >>> converts it to unsigned
+  return res >>> 0;
 }
 
 export function read16(u8_view, offset) {
-    return read(u8_view, offset, 2);
+  return read(u8_view, offset, 2);
 }
 
 export function read32(u8_view, offset) {
-    return read(u8_view, offset, 4);
+  return read(u8_view, offset, 4);
 }
 
 export function read64(u8_view, offset) {
-    let res = [];
-    for (let i = 0; i < 8; i++) {
-        res.push(u8_view[offset + i]);
-    }
-    return new Int(res);
+  let res = [];
+  for (let i = 0; i < 8; i++) {
+    res.push(u8_view[offset + i]);
+  }
+  return new Int(res);
 }
 
 // for writes less than 8 bytes
 function write(u8_view, offset, value, size) {
-    for (let i = 0; i < size; i++) {
-        u8_view[offset + i]  = (value >>> i*8) & 0xff;
-    }
+  for (let i = 0; i < size; i++) {
+    u8_view[offset + i] = (value >>> (i * 8)) & 0xff;
+  }
 }
 
 export function write16(u8_view, offset, value) {
-    write(u8_view, offset, value, 2);
+  write(u8_view, offset, value, 2);
 }
 
 export function write32(u8_view, offset, value) {
-    write(u8_view, offset, value, 4);
+  write(u8_view, offset, value, 4);
 }
 
 export function write64(u8_view, offset, value) {
-    if (!(value instanceof Int)) {
-        throw TypeError('write64 value must be an Int');
-    }
+  if (!(value instanceof Int)) {
+    throw TypeError('write64 value must be an Int');
+  }
 
-    let low = value.low();
-    let high = value.high();
+  let low = value.low();
+  let high = value.high();
 
-    for (let i = 0; i < 4; i++) {
-        u8_view[offset + i]  = (low >>> i*8) & 0xff;
-    }
-    for (let i = 0; i < 4; i++) {
-        u8_view[offset + 4 + i]  = (high >>> i*8) & 0xff;
-    }
+  for (let i = 0; i < 4; i++) {
+    u8_view[offset + i] = (low >>> (i * 8)) & 0xff;
+  }
+  for (let i = 0; i < 4; i++) {
+    u8_view[offset + 4 + i] = (high >>> (i * 8)) & 0xff;
+  }
 }
 
 export function sread64(str, offset) {
-    let res = [];
-    for (let i = 0; i < 8; i++) {
-        res.push(str.charCodeAt(offset + i));
-    }
-    return new Int(res);
+  let res = [];
+  for (let i = 0; i < 8; i++) {
+    res.push(str.charCodeAt(offset + i));
+  }
+  return new Int(res);
 }

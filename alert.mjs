@@ -23,18 +23,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 // We added this new file instead of putting this on run.mjs, so we can ensure
 // we can attach this listener first before running anything.
 addEventListener('unhandledrejection', (event) => {
-    const reason = event.reason;
-    // We log the line and column numbers as well since some exceptions (like
-    // SyntaxError) do not show it in the stack trace.
-    alert(
-        `${reason}\n`
-        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
-        + `${reason.stack}`
-    );
-    throw reason;
-})
+  const reason = event.reason;
+  // We log the line and column numbers as well since some exceptions (like
+  // SyntaxError) do not show it in the stack trace.
+  alert(
+    `${reason}\n` +
+      `${reason.sourceURL}:${reason.line}:${reason.column}\n` +
+      `${reason.stack}`
+  );
+  throw reason;
+});
 
 // important that we dynamically import the exploit script after we attach
 import('./exploit.mjs');
-
-
