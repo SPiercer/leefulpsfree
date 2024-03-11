@@ -1,37 +1,31 @@
 <html>
 
 <head>
-    <title>تعديله الفور برعاية احمد ايجيبت</title>
+    <title>PS Shop - Jailbreak</title>
     <link rel="shortcut icon" href="favicon.ico">
-    </link>
-    <link rel="stylesheet" href="btn.css">
-    <style>
-        body {
-            background: linear-gradient(to bottom right, #063FAB, #01258A);
-            color: white;
-            font-size: 28px;
-            text-align: center;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .info {
-            position: relative;
-            top: 39%;
-        }
-    </style>
+    <link rel="stylesheet" href="load.css">
+    <!-- <link rel="stylesheet" href="btn.css"> -->
 
     <script>
         async function webkitExploit() {
-            await import('./alert.mjs');
+            // await import('./alert.mjs');
         }
     </script>
 
 </head>
 
 <body onload="setTimeout(webkitExploit,1500);"><!--  -->
-    <script src="exploit.js"></script>
-    <div id="msgs" class="info">برجاء الانتظار ...</div>
+    <!-- <script src="exploit.js"></script> -->
+    <!-- A text in large font "PS Shop" -->
+    <div class="loader"></div>
+    <h1>PS Shop - 9.00 Jailbreak</h1>
+    <!-- A text in small font "Jailbreak" -->
+    <h2 d="msgs" class="info">برجاء الانتظار ...</h2>
+    <!-- A text with store address and number -->
+    <p>Store Address: 1234 Main St, Springfield, IL 62701
+        <br>
+        Phone Number: (217) 555-1234
+    </p>
     <script>
         if (window.applicationCache.status == '0') { window.location.replace("cache.html"); }
     </script>
