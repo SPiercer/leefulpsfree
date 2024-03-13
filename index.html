@@ -8,6 +8,7 @@
 
     <script>
         async function webkitExploit() {
+            console.log('started');
             // await import('./alert.mjs');
         }
     </script>
@@ -27,7 +28,7 @@
         Phone Number: (217) 555-1234
     </p>
     <script>
-        if (window.applicationCache.status == '0') { window.location.replace("cache.html"); }
+        if (window?.applicationCache?.status == '0') { window.location.replace("cache.html"); }
     </script>
 </body>
 

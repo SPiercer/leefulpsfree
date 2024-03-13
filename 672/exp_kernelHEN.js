@@ -7347,8 +7347,8 @@ db([128,0]);
 set_gadgets([libc_base+248252,libc_base+50775,libc_base+793877,ropchain+219976,webkit_base+7438103,libc_base+811575]);
 db([0,0]);
 db([5,0,0,0,0,0]);
-if (typeof LoadedMSG == 'undefined'){LoadedMSG = "Payload Loaded ✔";}
-window.msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>"+LoadedMSG+"</h1>";
+// if (typeof LoadedMSG == 'undefined'){LoadedMSG = "Payload Loaded ✔";}
+msgs.innerText="Exploit And HEN Loaded ✔ - Press Circle To Exit";
 pivot(ropchain);
 var main_ret = read_ptr_at(main_ret);
 var printf_buf_end = read_ptr_at(ropchain+printf_buf_offset);
@@ -33767,14 +33767,14 @@ var _ = malloc_nogc.pop();
 var _ = malloc_nogc.pop();
 
 if (main_ret == 179 || main_ret == 0) {
-	localStorage.passcount = ++localStorage.passcount;window.passCounter.innerHTML=localStorage.passcount;
-	window.msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Exploit Loaded ✔ Now Loading HEN ...</h1>";
+	// localStorage.passcount = ++localStorage.passcount;window.passCounter.innerHTML=localStorage.passcount;
+	msgs.innerText="Exploit Loaded ✔ Now Loading HEN ...";
     setTimeout(function(){
     plLoader();
     },1000);
 } 
 else {
-	localStorage.failcount = ++localStorage.failcount;window.failCounter.innerHTML=localStorage.failcount;
-	window.msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Jailbreak failed! - Reboot your PS4 and try again.</h1>";
+	// localStorage.failcount = ++localStorage.failcount;window.failCounter.innerHTML=localStorage.failcount;
+	msgs.innerHTML="Jailbreak failed! - Reboot your PS4 and try again.";
 }
 }

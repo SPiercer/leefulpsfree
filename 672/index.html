@@ -5,8 +5,29 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../load.css">
     <script>
-        function DLProgress(e) { Percent = (Math.round(e.loaded / e.total * 100)); window.msgs.innerHTML = "Installing Offline Cache: " + Percent + "%"; }
-        function DisplayCacheProgress() { setTimeout(function () { window.msgs.innerHTML = "Cache Installed Successfully"; }, 1000); setTimeout(function () { window.msgs.innerHTML = "Now Close And Re-Open Your Browser"; }, 3000); } window.applicationCache.addEventListener("progress", DLProgress, false); window.applicationCache.oncached = function (e) { DisplayCacheProgress(); }; window.applicationCache.onupdateready = function (e) { DisplayCacheProgress(); };
+        function DLProgress(e) {
+            Percent = (Math.round(e.loaded / e.total * 100));
+            msgs.innerHTML = "Installing Offline Cache: " + Percent + "%";
+        }
+        function DisplayCacheProgress() {
+            setTimeout(() => {
+                msgs.innerHTML = "Cache Installed Successfully";
+            }, 1000);
+
+            setTimeout(() => {
+                msgs.innerHTML = "Now Close And Re-Open Your Browser";
+            }, 3000);
+        }
+
+        window?.applicationCache?.addEventListener("progress", DLProgress, false);
+
+        window.applicationCache.oncached = function (e) {
+            DisplayCacheProgress();
+        };
+
+        window.applicationCache.onupdateready = (e) => {
+            DisplayCacheProgress();
+        };
     </script>
     <script src="exp_webkit.js"></script>
 </head>
@@ -15,16 +36,17 @@
     <div class="loader"></div>
     <h1>PS Shop - 6.72 Jailbreak</h1>
     <!-- A text in small font "Jailbreak" -->
-    <h2 d="msgs" class="info">برجاء الانتظار ...</h2>
+    <h2 id="msgs" class="info">برجاء الانتظار ...</h2>
     <!-- A text with store address and number -->
     <p>Store Address: 1234 Main St, Springfield, IL 62701
         <br>
         Phone Number: (217) 555-1234
     </p>
     <script>
+        const msgs = document.getElementById('msgs');
         function load_exploit_HEN() {
-            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Exploit And HEN ...</h1>";
-            LoadedMSG = "Exploit And HEN Loaded ✔ - Press Circle To Exit";
+            msgs.innerText = "Loading Exploit And HEN ...";
+            // const LoadedMSG = "Exploit And HEN Loaded ✔ - Press Circle To Exit";
             function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
             function loadScript() { getScript("exp_kernelHEN.js", function () { setTimeout(jailbreak, 500); }); } loadScript();
         }
