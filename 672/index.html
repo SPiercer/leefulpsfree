@@ -45,6 +45,7 @@
     <script>
         const msgs = document.getElementById('msgs');
         function load_exploit_HEN() {
+            alert('starting');
             msgs.innerText = "Loading Exploit And HEN ...";
             // const LoadedMSG = "Exploit And HEN Loaded ✔ - Press Circle To Exit";
             function getScript(source, callback) { var gs = document.createElement('script'); gs.src = source; gs.onload = callback; gs.async = false; document.body.appendChild(gs); }
