@@ -3,6 +3,7 @@ CACHE MANIFEST
 
 alert.mjs
 btn.css
+load.css
 cache.html
 config.mjs
 exploit.js
