@@ -13,14 +13,22 @@
         };
         function DisplayCacheProgress() {
             setTimeout(function () { msgs.innerHTML = "Cache Installed Successfully"; }, 2000);
-            setTimeout(function () { location.reload(); }, 3000);
+            setTimeout(function () { location.replace('index.html'); }, 3000);
         }
         window.applicationCache.addEventListener("progress", DLProgress, false); window.applicationCache.oncached = function (e) { DisplayCacheProgress(); }; window.applicationCache.onupdateready = function (e) { DisplayCacheProgress(); };
     </script>
 </head>
 
 <body style="overflow:hidden">
-    <div id="msgs" class="info" style='-webkit-font-feature-settings:"tnum";font-feature-settings:"tnum";'></div>
+    <div class="loader"></div>
+    <h1>PS Shop - 9.00 Jailbreak</h1>
+    <!-- A text in small font "Jailbreak" -->
+    <h2 id="msgs" class="info">برجاء الانتظار ...</h2>
+    <!-- A text with store address and number -->
+    <p>العنوان: 6ش عمر بن الخطاب - ارض الحداد - امبابة
+        <br>
+        Phone Number: 01144151603 <i class="fa-brands fa-whatsapp"></i>
+    </p>
 </body>
 
 </html>
