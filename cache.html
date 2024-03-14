@@ -6,16 +6,13 @@
     <link rel="stylesheet" href="load.css">
     <script src="https://kit.fontawesome.com/d32414187d.js" crossorigin="anonymous"></script>
     <script>
-        history.replaceState(null, null, 'index.html');
-        var histlength = history.length;
-        history.go(-histlength);
         function DLProgress(e) {
             Percent = (Math.round(e.loaded / e.total * 100));
             msgs.innerHTML = "Installing Offline Cache ... " + Percent + "%"
         };
         function DisplayCacheProgress() {
             setTimeout(function () { msgs.innerHTML = "Cache Installed Successfully"; }, 2000);
-            setTimeout(function () { location.reload(); }, 3000);
+            setTimeout(function () { window.location.replace('index.html'); }, 3000);
         }
         window.applicationCache.addEventListener("progress", DLProgress, false); window.applicationCache.oncached = function (e) { DisplayCacheProgress(); }; window.applicationCache.onupdateready = function (e) { DisplayCacheProgress(); };
     </script>
