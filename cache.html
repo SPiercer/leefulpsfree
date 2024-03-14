@@ -1,7 +1,7 @@
 <html manifest="leeful900v5b.cache">
 
 <head>
-    <title>تعديله الفور برعاية احمد ايجيبت</title>
+    <title>PS Shop - Jailbreak</title>
     <link rel="stylesheet" href="load.css">
     <script>
         history.replaceState(null, null, 'index.html');
@@ -13,13 +13,13 @@
         };
         function DisplayCacheProgress() {
             setTimeout(function () { msgs.innerHTML = "Cache Installed Successfully"; }, 2000);
-            setTimeout(function () { location.replace('index.html'); }, 3000);
+            setTimeout(function () { location.reload(); }, 3000);
         }
         window.applicationCache.addEventListener("progress", DLProgress, false); window.applicationCache.oncached = function (e) { DisplayCacheProgress(); }; window.applicationCache.onupdateready = function (e) { DisplayCacheProgress(); };
     </script>
 </head>
 
-<body style="overflow:hidden">
+<body>
     <div class="loader"></div>
     <h1>PS Shop - 9.00 Jailbreak</h1>
     <!-- A text in small font "Jailbreak" -->
