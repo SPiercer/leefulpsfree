@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>PS Shop - Jailbreak</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="../style/load.css">
+</head>
+
+<body>
+    <script>
+        if (document.cookie.indexOf('kex=0') >= 0)
+            document.location.href = '.';
+        else
+            document.cookie = 'kex=0';
+    </script>
+    <script>function print() { }</script>
+    <script src="common/exploit.js"></script>
+    <script src="common/helpers.js"></script>
+    <script src="common/malloc.js"></script>
+    <script src="common/rop.js"></script>
+    <script src="common/syscalls.js"></script>
+    <script src="common/syscalls2.js"></script>
+    <!-- <script src="jb/c-code.js"></script> -->
+    <script>
+        var script = document.createElement('script');
+        script.src = "jb/c-code.js";
+        document.getElementsByTagName('body')[0].appendChild(script);
+        if (main_ret == 179 /* already hacked */ || main_ret == 0 /* success */) {
+
+        }
+        else
+            alert("Jailbreak failed! Reboot your PS4 and try again.");
+    </script>
+
+    <div class="loader"></div>
+    <h1>PS Shop - 6.72 Jailbreak</h1>
+    <!-- A text in small font "Jailbreak" -->
+    <h2 id="msgs" class="info">برجاء الانتظار ...</h2>
+    <!-- A text with store address and number -->
+    <p>العنوان: 6 ش عمر بن الخطاب - ارض الحداد - امبابة
+        <br>
+        Phone Number: 01144151603 <img src="../style/whatsapp.svg" width="50" height="50" style="color: red;"> </img>
+    </p>
+    <!-- add fa icon for whatsapp -->
+</body>
+
+</html>

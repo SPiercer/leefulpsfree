@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>PS Shop - Jailbreak</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="style/load.css">
+    <script src="https://kit.fontawesome.com/d32414187d.js" crossorigin="anonymous"></script>
+    <script>
+        async function webkitExploit() {
+            console.log('started');
+            await import('./alert.mjs');
+        }
+    </script>
+
+</head>
+
+<body onload="setTimeout(webkitExploit,1500);"><!--  -->
+    <script src="exploit.js"></script>
+    <!-- A text in large font "PS Shop" -->
+    <div class="loader"></div>
+    <h1>PS Shop - 9.00 Jailbreak</h1>
+    <!-- A text in small font "Jailbreak" -->
+    <h2 id="msgs" class="info">برجاء الانتظار ...</h2>
+    <!-- A text with store address and number -->
+    <p>العنوان: 6 ش عمر بن الخطاب - ارض الحداد - امبابة
+        <br>
+        Phone Number: 01144151603 <img src="style/whatsapp.svg" width="50" height="50" style="color: red;"> </img>
+    </p>
+    <!-- add fa icon for whatsapp -->
+
+    <script>
+        if (window?.applicationCache?.status == '0') { window.location.replace("cache.html"); }
+    </script>
+</body>
+
+</html>

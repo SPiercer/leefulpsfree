@@ -1,17 +1,20 @@
 CACHE MANIFEST 
 # Leeful Auto v5b
 
-alert.mjs
-btn.css
-whatsapp.svg
-load.css
-cache.html
-config.mjs
-exploit.js
-exploit.mjs
+style\whatsapp.svg
 favicon.ico
+
+style\load.css
+cache.html
 index.html
+
+exploit.js
+
 pl_goldhenbeta.bin
+
+exploit.mjs
+config.mjs
+alert.mjs
 module\chain.mjs
 module\constants.mjs
 module\int64.mjs
