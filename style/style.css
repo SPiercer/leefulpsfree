@@ -1,17 +1,48 @@
+@property --colorA {
+    syntax: "<color>";
+    initial-value: #2b004f;
+    inherits: true;
+  }
+  @property --colorB {
+    initial-value: #eb9626;
+    syntax: "<color>";
+    inherits: true;
+  }
+body {
+  background: linear-gradient(to bottom right, var(--colorA), var(--colorB));
+}
+
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 .row {
-    display: flex;
-    gap: 100px;
+  display: flex;
+  gap: 100px;
 }
 
 .box {
-    width: 100px;
-    height: 100px;
-    background-color: red;
+  width: 15vw;
+  min-width: 200px;
+  height: 35vh;
+  background-color: #d6ada2;
+  transform: scale(1);
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  font-weight: bold;
+  color: #8860af;
+  border-radius: 10px;
+}
+
+.box:hover {
+  outline: 2px solid #d6ada2;
+  box-shadow: 0 0 40px #d6ada2;
+  transform: scale(1.2);
+  transition: all 0.5s;
 }

@@ -19,7 +19,7 @@ mira/mira.js
 mira/mira2.js
 
 favicon.ico
-..\style\load.css
-..\style\whatsapp.svg
+..\..\style\load.css
+..\..\style\whatsapp.svg
 NETWORK:
 *

@@ -1,22 +1,33 @@
 @property --p {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 0;
   inherits: true;
 }
 @property --r {
-  syntax: '<length-percentage>';
+  syntax: "<length-percentage>";
   initial-value: 0px;
   inherits: false;
 }
 @property --x {
-  syntax: '<length-percentage>';
+  syntax: "<length-percentage>";
   initial-value: 0px;
   inherits: false;
 }
 @property --y {
-  syntax: '<length-percentage>';
+  syntax: "<length-percentage>";
   initial-value: 0px;
   inherits: false;
+}
+
+@property --colorA {
+  syntax: "<color>";
+  initial-value: #2b004f;
+  inherits: true;
+}
+@property --colorB {
+  initial-value: #eb9626;
+  syntax: "<color>";
+  inherits: true;
 }
 html,
 body,
@@ -42,7 +53,7 @@ div,
 body {
   place-items: center;
   font: 900 6em cousine;
-  background: linear-gradient(to bottom right, #808080, #0000ff);
+  background: linear-gradient(to bottom right, var(--colorA), var(--colorB));
   color: white;
   font-size: 28px;
   text-align: center;
@@ -53,8 +64,8 @@ body::before {
   padding: 3em;
   border-radius: 0.5em;
   box-shadow: 4px 4px 13px;
-  background: linear-gradient(-45deg, #bdb76b, #0000ff);
-  content: '';
+  background: linear-gradient(-45deg, var(--colorA), var(--colorB));
+  content: "";
   color: transparent;
 }
 
@@ -62,10 +73,6 @@ body::before {
   counter-reset: p var(--p);
   mix-blend-mode: lighten;
   animation: p 6s linear infinite;
-}
-.load::before,
-.load::after {
-  background: linear-gradient(-45deg, #d196dd, #fd954e);
 }
 .load::before {
   --x: 0.25em;
@@ -89,15 +96,14 @@ body::before {
   animation: r 6s ease-out infinite,
     x 1.5s cubic-bezier(0.365, 0, 0.635, 1) -0.75s infinite alternate,
     y 1.5s cubic-bezier(0.365, 0, 0.635, 1) infinite alternate;
-  content: '';
+  content: "";
 }
 .load::after {
   place-items: center;
   background-clip: text;
   -webkit-background-clip: text;
-  color: rgba(0, 0, 0, 0);
   mix-blend-mode: difference;
-  content: counter(p) '%';
+  content: counter(p) "%";
 }
 
 @keyframes p {
@@ -168,7 +174,7 @@ body::before {
     bottom: 0;
     left: 0;
     right: 0;
-    content: '\274c';
+    content: "\274c";
     font-size: 50px;
     color: #fff;
     line-height: 100px;

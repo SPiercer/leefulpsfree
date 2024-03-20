@@ -1,10 +1,10 @@
 CACHE MANIFEST 
 # Leeful Auto v5b
 
-style\whatsapp.svg
+..\..\style\whatsapp.svg
 favicon.ico
 
-style\load.css
+..\..\style\load.css
 cache.html
 index.html
 
