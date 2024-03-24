@@ -1,15 +1,9 @@
-@property --colorA {
-    syntax: "<color>";
-    initial-value: #2b004f;
-    inherits: true;
-  }
-  @property --colorB {
-    initial-value: #eb9626;
-    syntax: "<color>";
-    inherits: true;
-  }
 body {
-  background: linear-gradient(to bottom right, var(--colorA), var(--colorB));
+  background: linear-gradient(to bottom right, #2b004f, #eb9626);
+}
+
+a {
+  text-decoration: none;
 }
 
 .center {
@@ -19,12 +13,17 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
 .row {
   display: flex;
   gap: 100px;
 }
 
+
+
 .box {
+  cursor: pointer;
+  user-select: none;
   width: 15vw;
   min-width: 200px;
   height: 35vh;
@@ -45,4 +44,14 @@ body {
   box-shadow: 0 0 40px #d6ada2;
   transform: scale(1.2);
   transition: all 0.5s;
+}
+
+.row > * {
+  margin-right: 100px;
+
+}
+
+/* remove right margin on last item */
+.row > *:last-child {
+  margin-right: 0;
 }
