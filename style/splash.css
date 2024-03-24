@@ -1,0 +1,25 @@
+body {
+    background: #ECEFF1;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#message {
+    max-width: 360px;
+    border-radius: 3px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#message h1 {
+    direction: rtl;
+}
