@@ -27,7 +27,6 @@
                 try {
                     if (req.readyState == 4) {
                         PLD = req.response;
-                        alert(req.response);
                         var payload_buffer = chain.syscall(477, 0, PLD.byteLength * 4, 7, 0x1002, -1, 0);
                         //var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x41000, -1, 0);
                         var pl = p.array_from_address(payload_buffer, PLD.byteLength * 4);
