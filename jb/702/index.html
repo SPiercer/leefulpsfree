@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>PS Shop - Jailbreak</title>
     <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="stylesheet" href="../../style/style.css">nk
+    <link rel="stylesheet" href="../../style/load.css">
 </head>
 
 <head>
@@ -24,20 +24,25 @@
             req.open('GET', PLfile);
             req.send();
             req.onreadystatechange = function () {
-                if (req.readyState == 4) {
-                    PLD = req.response;
-                    var payload_buffer = chain.syscall(477, 0, PLD.byteLength * 4, 7, 0x1002, -1, 0);
-                    //var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x41000, -1, 0);
-                    var pl = p.array_from_address(payload_buffer, PLD.byteLength * 4);
-                    var padding = new Uint8Array(4 - (req.response.byteLength % 4) % 4);
-                    var tmp = new Uint8Array(req.response.byteLength + padding.byteLength);
-                    tmp.set(new Uint8Array(req.response), 0);
-                    tmp.set(padding, req.response.byteLength);
-                    var shellcode = new Uint32Array(tmp.buffer);
-                    pl.set(shellcode, 0);
-                    var pthread = p.malloc(0x10);
-                    chain.call(libKernelBase.add32(OFFSET_lk_pthread_create_name_np), pthread, 0x0, payload_buffer, 0);
-                    allset();
+                try {
+                    if (req.readyState == 4) {
+                        PLD = req.response;
+                        alert(req.response);
+                        var payload_buffer = chain.syscall(477, 0, PLD.byteLength * 4, 7, 0x1002, -1, 0);
+                        //var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x41000, -1, 0);
+                        var pl = p.array_from_address(payload_buffer, PLD.byteLength * 4);
+                        var padding = new Uint8Array(4 - (req.response.byteLength % 4) % 4);
+                        var tmp = new Uint8Array(req.response.byteLength + padding.byteLength);
+                        tmp.set(new Uint8Array(req.response), 0);
+                        tmp.set(padding, req.response.byteLength);
+                        var shellcode = new Uint32Array(tmp.buffer);
+                        pl.set(shellcode, 0);
+                        var pthread = p.malloc(0x10);
+                        chain.call(libKernelBase.add32(OFFSET_lk_pthread_create_name_np), pthread, 0x0, payload_buffer, 0);
+                        allset();
+                    }
+                } catch (error) {
+                    alert("Error: " + error);
                 }
             };
         }
@@ -47,7 +52,7 @@
             goldhen23();
         }
         function goldhen23() {
-            PLfile = "pl_goldhenbeta.bin";
+            PLfile = "goldhen_2.3_702.bin";
             load_poc();
         }
         function allset() {
@@ -59,7 +64,7 @@
 
 <body>
     <div class="loader"></div>
-    <h1>PS Shop - 6.72 Jailbreak</h1>
+    <h1>PS Shop - 7.02 Jailbreak</h1>
     <h2 id="progress" class="info">برجاء الانتظار ...</h2>
     <p>العنوان: 6 ش عمر بن الخطاب - ارض الحداد - امبابة
         <br>
